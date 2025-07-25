@@ -1,6 +1,6 @@
 # Kfullstack — Gestión de Proyectos y Tareas
 
-Una aplicación web moderna para gestionar proyectos y tareas con autenticación JWT, desarrollada con **Spring Boot 3** (backend) y **Next.js 15 + React 18 + TailwindCSS 4** (frontend).
+Una aplicación web moderna para gestionar proyectos y tareas con autenticación, desarrollada con **Spring Boot 3** (backend) y **Next.js 15 + React 18 + TailwindCSS 4** (frontend).
 
 ---
 
@@ -8,7 +8,7 @@ Una aplicación web moderna para gestionar proyectos y tareas con autenticación
 
 ### Backend (Spring Boot)
 
-- API RESTful con autenticación y autorización JWT  
+- API RESTful con autenticación y autorización  
 - Roles `ADMIN` y `USER` con permisos diferenciados  
 - CRUD de usuarios, proyectos y tareas  
 - Estados de tareas: `PENDING`, `IN_PROGRESS`, `DONE`  
@@ -19,7 +19,7 @@ Una aplicación web moderna para gestionar proyectos y tareas con autenticación
 
 ### Frontend (Next.js + React)
 
-- Autenticación segura con JWT 
+- Autenticación segura 
 - Dashboard interactivo con estadísticas de proyectos y tareas  
 - Gestión completa de proyectos y tareas (CRUD)  
 - Filtrado y ordenamiento de tareas  
@@ -170,7 +170,6 @@ src/
 ## 🎨 Diseño y UI
 
 - UI creada con TailwindCSS v4  
-- Responsive para Desktop, Tablet y Móvil  
 - Skeleton loaders para cargas elegantes  
 - Estados vacíos informativos  
 - Componentes reutilizables (Botones, Inputs, Selects, Modales, Alertas, etc.)  
