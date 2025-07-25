@@ -1,131 +1,200 @@
-# Kfullstack 
+# Kfullstack — Gestión de Proyectos y Tareas
 
-## Backend
+Una aplicación web moderna para gestionar proyectos y tareas con autenticación JWT, desarrollada con **Spring Boot 3** (backend) y **Next.js 15 + React 18 + TailwindCSS 4** (frontend).
 
-Este es el backend del proyecto **Kfullstack**, desarrollado con **Spring Boot**.
+---
 
-### Tecnologías Utilizadas
+## 🚀 Características Principales
 
-- Java 17  
-- Spring Boot  
-- Spring Security  
-- Spring Data JPA  
-- PostgreSQL  
-- Maven  
-- Docker y Docker Compose  
-- Swagger OpenAPI
+### Backend (Spring Boot)
 
-## Características
-
-- Autenticación y autorización con JWT  
-- Gestión de usuarios con roles (ADMIN / USER)  
-- Gestión de proyectos y tareas  
-- Swagger UI para documentación 
+- API RESTful con autenticación y autorización JWT  
+- Roles `ADMIN` y `USER` con permisos diferenciados  
+- CRUD de usuarios, proyectos y tareas  
+- Estados de tareas: `PENDING`, `IN_PROGRESS`, `DONE`  
+- Validaciones con anotaciones estándar  
+- Documentación con Swagger UI  
 - Persistencia con PostgreSQL  
-- Preparado para despliegue con Docker
+- Preparado para Docker y Docker Compose  
 
-### Configuración del Proyecto
+### Frontend (Next.js + React)
 
-#### Prerequisitos
+- Autenticación segura con JWT 
+- Dashboard interactivo con estadísticas de proyectos y tareas  
+- Gestión completa de proyectos y tareas (CRUD)  
+- Filtrado y ordenamiento de tareas  
+- Asignación de tareas a usuarios  
+- Protección automática de rutas mediante middleware  
+- UI moderna y responsive con TailwindCSS  
+- Manejo eficiente del estado global con Zustand  
 
-- Java JDK 17 o superior  
-- Maven  
-- Docker y Docker Compose
+---
 
 ## 📦 Instalación y Ejecución
 
-### 🐳 Requisitos
+### Requisitos previos
 
-- Docker  
-- Docker Compose  
+- Java 17+  
+- Maven  
+- Node.js 18+ y npm  
+- Docker y Docker Compose  
 
-### 🔧 Ejecución con Docker
+---
 
-1. Clona el repositorio:
+### Backend
 
-   ```bash
-   git clone https://github.com/KathM03/Kfullstack.git
-   cd Kfullstack/backend
-   ```
-   
-2. Construye el .jar del proyecto:
+1. Clona el repositorio y navega al backend:
 
-   ```bash
-   mvn clean install -DskipTests
-   ```
+```bash
+git clone https://github.com/KathM03/Kfullstack.git
+cd Kfullstack/backend
+```
 
- 3. Ejecuta todo el entorno:
+2. Construye el proyecto:
 
-   ```bash
-   docker-compose up -d
-   ```
+```bash
+mvn clean install -DskipTests
+```
 
-El backend se levantará automáticamente en:
+3. Levanta el backend y la base de datos con Docker Compose:
 
-http://localhost:8080/kfullstack
+```bash
+docker-compose up -d
+```
 
-PostgreSQL estará disponible en localhost:5432
-
-### Estructura del Proyecto
+4. Accede al backend en:
 
 ```
+http://localhost:8080/kfullstack
+```
+
+5. Documentación Swagger:
+
+```
+http://localhost:8080/kfullstack/swagger-ui/index.html
+```
+
+---
+
+### Frontend
+
+1. Abre otra terminal y navega al frontend:
+
+```bash
+cd ../frontend
+```
+
+2. Instala dependencias:
+
+```bash
+npm install
+```
+
+3. Inicia la aplicación en modo desarrollo:
+
+```bash
+npm run dev
+```
+
+4. Accede al frontend en:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📁 Estructura del Proyecto
+
+### Backend (`/backend`)
+
+```plaintext
 src/
 ├── main/
-│   ├── java/
-│   │   └── com/
-│   │       └── sasf/
-│   │           └── kfullstack/
-│   │               ├── Config/       # Configuraciones de la aplicación
-│   │               ├── Constants/    # Constantes y enumeraciones
-│   │               ├── Controller/   # Controladores REST
-│   │               ├── DTO/          # Objetos de transferencia de datos
-│   │               ├── Entity/       # Entidades JPA
-│   │               ├── Exception/    # Manejo de excepciones
-│   │               ├── Repository/   # Repositorios JPA
-│   │               ├── Security/     # Configuración de seguridad
-│   │               ├── Service/      # Lógica de negocio
-│   │               ├── Util/         # Utilidades
-│   │               └── Validation/   # Validaciones
+│   ├── java/com/sasf/kfullstack/
+│   │   ├── Config/
+│   │   ├── Controller/
+│   │   ├── DTO/
+│   │   ├── Entity/
+│   │   ├── Exception/
+│   │   ├── Repository/
+│   │   ├── Security/
+│   │   ├── Service/
+│   │   ├── Util/
+│   │   └── Validation/
 │   └── resources/
-│       └── application.properties    # Configuraciones de la aplicación
+│       └── application.properties
 ```
 
-### Usuarios Predeterminados
+### Frontend (`/frontend`)
 
-El sistema crea automáticamente dos usuarios al iniciar:
-
-1. Usuario Administrador:
-   - Username: admin
-   - Email: admin@email.com
-   - Password: admin123
-   - Role: ADMIN
-
-2. Usuario Regular:
-   - Username: user
-   - Email: user@email.com
-   - Password: user123
-   - Role: USER
-
-### Estados del Sistema
-
-#### Estados Genéricos
-- ACTIVE
-- INACTIVE
-- DELETE
-
-#### Estados de Tareas
-- PENDING
-- IN_PROGRESS
-- DONE
-
-### Documentación API
-
-La documentación de la API está disponible a través de Swagger UI en:
+```plaintext
+src/
+├── app/
+│   ├── dashboard/
+│   ├── login/
+│   ├── projects/
+│   └── layout.tsx
+├── components/
+│   ├── ui/
+│   ├── projects/
+│   ├── tasks/
+│   └── Layout.tsx
+├── hooks/
+├── services/
+├── store/
+├── types/
+└── middleware.ts
 ```
 
-http://localhost:8080/kfullstack/swagger-ui/index.html#/
+---
+
+## 👤 Usuarios Predeterminados
+
+| Usuario | Email           | Contraseña | Rol   |
+|---------|-----------------|------------|-------|
+| admin   | admin@email.com | admin123   | ADMIN |
+| user    | user@email.com  | user123    | USER  |
+
+---
+
+## 🔐 Autenticación y Seguridad
+
+- JWT con almacenamiento en localStorage y cookies seguras  
+- Middleware automático para proteger rutas frontend  
+- Roles con permisos específicos (creación de usuarios solo para ADMIN)  
+- Manejo automático de expiración y refresco de token  
+
+---
+
+## 🎨 Diseño y UI
+
+- UI creada con TailwindCSS v4  
+- Responsive para Desktop, Tablet y Móvil  
+- Skeleton loaders para cargas elegantes  
+- Estados vacíos informativos  
+- Componentes reutilizables (Botones, Inputs, Selects, Modales, Alertas, etc.)  
+
+---
+
+## ⚙️ Scripts Disponibles
+
+### Backend
+
+```bash
+mvn clean install -DskipTests
+docker-compose up -d
 ```
 
-### Licencia
+### Frontend
 
-Este proyecto está bajo la licencia [MIT](https://choosealicense.com/licenses/mit/).
+```bash
+npm install
+npm run dev        # Desarrollo
+```
+
+---
+
+## 📄 Licencia
+
+MIT License. Proyecto para prueba técnica Krugger.
